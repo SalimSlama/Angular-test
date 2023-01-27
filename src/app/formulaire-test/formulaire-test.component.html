@@ -1,36 +1,44 @@
 <form [formGroup]="personeForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-      <label for="name">Name:</label>
-      <input class="form-control" type="text" formControlName="name" id="name">
-      <div *ngIf="personeForm.get('name').hasError('required') && personeForm.get('name').touched" class="error">
-        Name is required
-      </div>
+    <label for="name">Name:</label>
+    <input class="form-control" type="text" formControlName="name" id="name">
+    <div *ngIf="personeForm.get('email').hasError('required') && personeForm.get('name').touched" class="error">
+      Name is required
+    </div>
   </div>
   <div class="form-group">
-      <label for="email">Email:</label>
-      <input class="form-control" type="email" formControlName="email" id="email">
-      <div *ngIf="personeForm.get('email').hasError('required') && personeForm.get('email').touched" class="error">
-        Email is required
-      </div>
-      <div *ngIf="personeForm.get('email').hasError('email') && personeForm.get('email').touched" class="error">
-        Invalid email
-      </div>
-      <div *ngIf="personeForm.get('email').hasError('yopmail') && personeForm.get('email').touched" class="error">
-        Email cannot contain the domain @yopmail.com
-      </div>
+    <label for="email">Email:</label>
+    <input class="form-control" type="email" formControlName="email" id="email">
+    <div *ngIf="personeForm.get('email').hasError('required') && personeForm.get('email').touched" class="error">
+      Email is required
+    </div>
+    <div *ngIf="personeForm.get('email').hasError('email') && personeForm.get('email').touched" class="error">
+      Invalid email
+    </div>
+    <div *ngIf="personeForm.get('email').hasError('yopmail') && personeForm.get('email').touched" class="error">
+      Email cannot contain the domain @yopmail.com
+    </div>
   </div>
   <div class="form-group">
-      <label for="age">Age:</label>
-      <input class="form-control" type="number" formControlName="age" id="age">
-      <div *ngIf="personeForm.get('age').hasError('required') && personeForm.get('age').touched" class="error">
-        Age is required
-      </div>
+    <label for="age">Age:</label>
+    <input class="form-control" type="number" formControlName="age" id="age">
+    <div *ngIf="personeForm.get('email').hasError('required') && personeForm.get('age').touched" class="error">
+      Age is required
+    </div>
   </div>
   <div class="form-group">
-      <label for="country">Country:</label>
-      <select class="form-control" formControlName="country" id="country">
-          <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
-      </select>
+    <label for="country">Country:</label>
+    <select class="form-control" formControlName="country" id="country">
+      <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+    </select>
   </div>
   <button class="btn btn-primary" type="submit" [disabled]="!personeForm.valid">Save</button>
+  <!-- <button (click)="resetForm()">reset</button> -->
+
+  <div>
+    <label>votre nom : {{personne?.name}} </label>
+    <label>votre adresse mail : {{personne?.email}} </label>
+    <label>votre age : {{personne?.age}} </label>
+    <label>votre pays : {{personne?.country}} </label>
+  </div>
 </form>

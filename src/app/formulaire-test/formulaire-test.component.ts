@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 })
 export class FormulaireTestComponent implements OnInit {
 
+  personne;
   personeForm: FormGroup;
   countries = [
     { name: 'Tunisia' },
@@ -29,12 +30,6 @@ export class FormulaireTestComponent implements OnInit {
 
   }
 
-  restrictEmails(control: FormControl): { [s: string]: boolean } {
-    if (control.value === '@yopmail.com') {
-      return { restrictEmail: true };
-    }
-    return null;
-  }
 
   yopmailValidator(control: AbstractControl) {
     if (control.value.includes('@yopmail.com')) {
@@ -53,7 +48,18 @@ export class FormulaireTestComponent implements OnInit {
     if (this.personeForm.valid) {
       // Save employee data to database
       console.log(this.personeForm.value)
+      this.personne = this.personeForm.value
+      //this.personeForm.reset
+this.resetForm()
     }
+  }
+  resetForm() {
+    this.personeForm.reset({
+      "name": "",
+      "email": "",
+      "age": "",
+      "country": ""
+    })
   }
 }
 
