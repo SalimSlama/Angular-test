@@ -1,3 +1,9 @@
+J'ai appliqué des validators sur les champs afin qu'elles seront obligatoirs et affiche des messages d'erreurs en cas d'échec.
+j'ai essayé de faire la connexion avec firebase, mais je pense que la version Angular 11 pose des problémes avec firebase 9 d'ou j'ai rencotré
+des problémes au niveau des modules importés dans app.modules.ts. (Vous pouvez visulaliser l'insertion du code pour la connexion au firebase dans le fichier environment.ts)
+
+J'ai ajouter une fonction qui vide tous les champs du formulaires aprés l'appui sur le bouton "Save" (resetForm()).
+
 # Test
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.17.
